@@ -1,4 +1,4 @@
-/* ---------- 1. DESIGN TOKENS ---------- */
+
 :root {
   --bg: #12123a;
   --surface: #1d1d4f;
@@ -11,7 +11,7 @@
   --shadow-size: 6px;
 }
 
-/* ---------- 2. RESET + BASE ---------- */
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -33,12 +33,12 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
 
-/* Each card sets its own --color using the yellow / pink / cyan classes */
+
 .yellow { --color: var(--yellow); }
 .pink   { --color: var(--pink); }
 .cyan   { --color: var(--cyan); }
 
-/* ---------- 3. NAVBAR (sticky + flexbox) ---------- */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -59,7 +59,7 @@ ul { list-style: none; }
 .nav-links a:not(.btn) { color: var(--muted); transition: color 0.2s; }
 .nav-links a:not(.btn):hover { color: var(--yellow); }
 
-/* ---------- 4. BUTTONS + PILLS ---------- */
+
 .btn {
   display: inline-block;
   background: var(--yellow);
@@ -74,7 +74,7 @@ ul { list-style: none; }
   font-size: 1rem;
   transition: transform 0.15s, box-shadow 0.15s;
 }
-/* "pressed button" effect: move down-right and shrink the shadow */
+
 .btn:hover { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--pink); }
 
 .btn-outline { background: transparent; color: var(--text); }
@@ -91,14 +91,14 @@ ul { list-style: none; }
   font-size: 0.9rem;
 }
 
-/* ---------- 5. CARD ---------- */
+
 .card {
   background: var(--surface);
   padding: 1.5rem;
   border: 3px solid var(--text);
   border-radius: var(--radius);
   box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--color, var(--yellow));
-  transition: transform 0.2s, box-shadow 0.2s;   /* the CSS transition */
+  transition: transform 0.2s, box-shadow 0.2s;   
 }
 .card:hover {
   transform: translate(3px, 3px);
@@ -107,7 +107,7 @@ ul { list-style: none; }
 
 .tag { color: var(--color, var(--yellow)); font-size: 0.7rem; margin-bottom: 0.75rem; }
 
-/* ---------- 6. SECTIONS ---------- */
+
 .section {
   max-width: 1100px;
   margin: 0 auto;
@@ -115,7 +115,7 @@ ul { list-style: none; }
   scroll-margin-top: 60px;
 }
 
-/* ---------- 7. HERO (CSS Grid) ---------- */
+
 .hero { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 0; }
 
 .hero-grid {
@@ -126,15 +126,15 @@ ul { list-style: none; }
 .intro { grid-column: 1; }
 .portrait {
   grid-column: 2;
-  grid-row: 1 / 3;        /* tall card spanning two rows */
-  position: relative;     /* the photo and badge are positioned inside this */
+  grid-row: 1 / 3;        
+  position: relative;     
   padding: 0;
   overflow: hidden;
   min-height: 380px;
   animation: float 3s ease-in-out infinite;
 }
 .portrait img {
-  position: absolute;     /* fills the whole card */
+  position: absolute;     
   inset: 0;
   width: 100%;
   height: 100%;
@@ -157,7 +157,7 @@ h1 { font-size: clamp(1.4rem, 4vw, 2.3rem); margin-bottom: 0.75rem; }
 .role { color: var(--cyan); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.75rem; }
 .lead { color: var(--muted); max-width: 46ch; }
 
-/* blinking cursor next to "Player 01" */
+
 .cursor {
   display: inline-block;
   width: 10px;
@@ -167,17 +167,17 @@ h1 { font-size: clamp(1.4rem, 4vw, 2.3rem); margin-bottom: 0.75rem; }
   animation: blink 1s steps(1) infinite;
 }
 
-/* loading bar */
+
 .bar { height: 18px; border: 3px solid var(--text); border-radius: 6px; overflow: hidden; margin: 0.5rem 0 0.75rem; }
 .fill { height: 100%; background: var(--cyan); animation: load 3s ease-in-out infinite; }
 .loading p { color: var(--muted); }
 
-/* ---------- 8. ANIMATIONS (keyframes) ---------- */
+
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes load { 0% { width: 0; } 80%, 100% { width: 100%; } }
 
-/* ---------- 9. STATS / INVENTORY / PROJECTS / CONTACT ---------- */
+
 .about-text { color: var(--muted); font-size: 1.1rem; max-width: 60ch; margin-bottom: 1.5rem; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .stats dt { color: var(--cyan); font-size: 0.9rem; }
@@ -238,11 +238,11 @@ form input:focus, form textarea:focus { outline: none; border-color: var(--yello
 form .btn { margin-top: 1.25rem; }
 form.card:hover { transform: none; box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--color); }
 
-/* ---------- 10. FOOTER ---------- */
+
 .footer { text-align: center; color: var(--muted); padding: 5rem 1rem 2.5rem; font-size: 0.9rem; }
 .footer p:first-child { font-family: "Press Start 2P", monospace; color: var(--yellow); font-size: 0.75rem; margin-bottom: 0.75rem; }
 
-/* ---------- 11. RESPONSIVE (media queries) ---------- */
+
 @media (max-width: 800px) {
   .hero-grid { grid-template-columns: 1fr; }
   .intro, .portrait, .loading { grid-column: 1; grid-row: auto; }
@@ -256,7 +256,7 @@ form.card:hover { transform: none; box-shadow: var(--shadow-size) var(--shadow-s
   h2 { font-size: 1.05rem; }
 }
 
-/* Respect users who turn off motion */
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
